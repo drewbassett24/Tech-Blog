@@ -1,6 +1,6 @@
 const express = require('express');
 // const routes = require('./route');
-// const sequelize = require('./config/connection');
+const sequelize = require('./config/connection');
 // const Blogclear = require('./models');
 
 const PORT = 3307;
