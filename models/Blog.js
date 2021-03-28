@@ -25,4 +25,6 @@ Blog.init (
             allowNULL: false,
         }
     }
-)
+);
+
+module.export = Blog
