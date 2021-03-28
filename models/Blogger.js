@@ -5,6 +5,10 @@ class Blogger extends Model {}
 
 Blogger.init (
     {
+        name: {
+            type: DataTypes.STRING(length(30)),
+            allowNull: false
+        },
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -22,3 +26,4 @@ Blogger.init (
         
     }
 )
+module.exports = Blogger;
