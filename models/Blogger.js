@@ -6,7 +6,7 @@ class Blogger extends Model {}
 Blogger.init (
     {
         name: {
-            type: DataTypes.STRING(length(30)),
+            type: DataTypes.STRING(30),
             allowNull: false
         },
         id: {
@@ -16,14 +16,21 @@ Blogger.init (
             autoIncrement: true
         },
         website: {
-            type: DataTypes.STRING(length(100)),
+            type: DataTypes.STRING(100),
             allowNull: true,
         },
         websiteURL: {
-            type: DataTypes.STRING(length(100)),
+            type: DataTypes.STRING(100),
             allowNull: true,
         },
         
-    }
-)
+    },
+    {
+        sequelize,
+        timestamps: false, 
+        freezetableName: true,
+        modelName: 'Blogger'
+     }
+);
+
 module.exports = Blogger;
