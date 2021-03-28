@@ -32,11 +32,17 @@ const sess = {
   })
 };
 
-// app.use(routes);
+app.use(session(sess));
 
-// app.use(express.json());
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
+app.use(routes);
+
+app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
-sequelize.sync().then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening on PORT ' + PORT));
 });
