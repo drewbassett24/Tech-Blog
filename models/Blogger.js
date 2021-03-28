@@ -1,4 +1,6 @@
 const {Model, DataTypes, INTEGER} = require('sequelize');
+const bcrypt = required('bcrypt');
+const sequelize = requiered('../config/connection');
 
 
 class Blogger extends Model {}
@@ -12,16 +14,23 @@ Blogger.init (
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primarykey: true,
+            primaryKey: true,
             autoIncrement: true
         },
-        website: {
-            type: DataTypes.STRING(100),
-            allowNull: true,
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            unique: true,
+            validate: {
+                isEmail: true,
+            }
         },
-        websiteURL: {
-            type: DataTypes.STRING(100),
-            allowNull: true,
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            valisate: {
+                len: [10],
+            },
         },
         
     },

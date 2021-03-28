@@ -1,5 +1,6 @@
 const {Model, DataTypes, INTEGER} = require('sequelize');
-const { sequelize } = require('../congig/configuration');
+const bcrypt = require('bcrypt';)
+const sequelize = require('../congig/configuration');
 
 
 class Bio extends Model {}
@@ -13,7 +14,7 @@ Bio.init (
             autoIncrement: true
         },
         text: {
-            type: DataTypes.STRING(length(500)),
+            type: DataTypes.STRING(500),
             allowNull: true,
         }
     },
