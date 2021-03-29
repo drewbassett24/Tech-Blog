@@ -136,7 +136,7 @@ router.post('/:id', withAuth, async (req, res) => {
             blog_id: req.body.id,
         });
 
-        res.sttus(200).json(newComment);
+        res.status(200).json(newComment);
     } catch (err) {
         res.status(500).json(err);
     }
