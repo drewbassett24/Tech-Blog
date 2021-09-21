@@ -10,11 +10,9 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const blog = require('./models/Blog');
 const blogger = require('./models/Blogger');
-const bio = require('./models/Bio');
+const comment = require('./models/Comment');
 
-// const routes = require('./route');
 
-// const Blogclear = require('./models');
 
 const PORT = process.env.PORT || 3307;
 
@@ -23,7 +21,7 @@ const hbs = exphbs.create({ helpers });
 const app = express();
 
 const sess = {
-  secrete: 'Super secret secret',
+  secrete: 'Secret Squirel',
   cookie: { maxAge: 360000},
   resave: false,
   saveUninitialized: true,
@@ -40,7 +38,7 @@ app.set('view engine', 'handlebars');
 app.use(routes);
 
 app.use(express.json());
-// app.use(express.urlencoded({ extended: true }));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 sequelize.sync({ force: false }).then(() => {

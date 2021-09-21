@@ -1,6 +1,6 @@
 const {Model, DataTypes, INTEGER} = require('sequelize');
-const bcrypt = required('bcrypt');
-const sequelize = requiered('../config/connection');
+const bcrypt = require('bcrypt');
+const sequelize = require('../config/connection');
 
 class Blog extends Model {}
 

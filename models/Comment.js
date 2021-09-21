@@ -1,6 +1,6 @@
 const {Model, DataTypes, INTEGER} = require('sequelize');
 const bcrypt = require('bcrypt');
-const sequelize = require('../congig/configuration');
+const sequelize = require('../config/connection');
 
 
 class Comment extends Model {}
@@ -10,7 +10,7 @@ Comment.init (
         id: {
             type: DataTypes.INTEGER,
             allowNull: false,
-            primarykey: true,
+            primaryKey: true,
             autoIncrement: true
         },
         text: {
@@ -22,10 +22,10 @@ Comment.init (
             allowNull: false,
             defaultValue: DataTypes.NOW,
         },
-        user_id: {
+        blogger_id: {
             type: DataTypes.INTEGER,
             references: {
-                model: 'user',
+                model: 'blogger',
                 key: 'id',
             },
         },
