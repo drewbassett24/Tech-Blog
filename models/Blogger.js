@@ -3,11 +3,15 @@ const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 
-class Blogger extends Model {}
+class Blogger extends Model {
+    checkPassword(loginPw) {
+        return bcrypt.compareSync(loginPw, this.password);
+    }
+}
 
 Blogger.init (
     {
-        name: {
+        username: {
             type: DataTypes.STRING(30),
             allowNull: false
         },
@@ -28,10 +32,10 @@ Blogger.init (
         password: {
             type: DataTypes.STRING,
             allowNull: false,
-            valisate: {
+            validate: {
                 len: [10],
-            },
-        },
+            }
+        }
         
     },
     {
