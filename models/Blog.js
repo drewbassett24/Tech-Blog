@@ -28,7 +28,7 @@ Blog.init (
         description: {
             type: DataTypes.STRING(100),
         },
-        userId: {
+        blogger_id: {
             type: DataTypes.INTEGER,
             references: {
                 model: 'Blogger',
