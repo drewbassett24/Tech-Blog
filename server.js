@@ -21,7 +21,7 @@ const hbs = exphbs.create({ helpers });
 const app = express();
 
 const sess = {
-  secrete: 'Secret Squirel',
+  secret: 'Secret Squirel',
   cookie: { maxAge: 360000},
   resave: false,
   saveUninitialized: true,
@@ -30,10 +30,12 @@ const sess = {
   })
 };
 
-app.use(session({
-  resave: true,
-  saveUninitialised: true
-}));
+app.use(session(sess));
+
+// app.use(session({
+//   resave: true,
+//   saveUninitialised: true
+// }));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
