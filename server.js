@@ -30,7 +30,10 @@ const sess = {
   })
 };
 
-app.use(session(sess));
+app.use(session({
+  resave: true,
+  saveUninitialised: true
+}));
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
